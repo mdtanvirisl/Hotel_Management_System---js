@@ -1,0 +1,45 @@
+body {
+    margin-top: 2%;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+/* Header Styles */
+img {
+    height: 70px;
+    width: 70px;
+}
+
+.header {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    border: 2px solid blue;
+    align-items: center;
+}
+
+.h-title {
+    display: flex;
+    justify-content: flex-start;
+    color: blue;
+}
+
+.menu {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 20px;
+}
+
+.menu a {
+    margin-left: 15px;
+    margin-right: 15px;
+    padding: 10px;
+    text-decoration: none;
+    color: blue;
+}
+
+a:hover {
+    /* background-color: rgb(123, 178, 255); */
+    background-color: cyan;
+    color: black;
+    border-radius: 5px;
+}

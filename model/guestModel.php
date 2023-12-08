@@ -56,17 +56,17 @@
         }
     }
 
-    function updatePassword($username, $password){
-        $con = getConnection();
-        $sql = "update login set Password='{$password}' where UserName = '{$username}'";
-        $result = mysqli_query($con, $sql);
+    // function updatePassword($username, $password){
+    //     $con = getConnection();
+    //     $sql = "update login set Password='{$password}' where UserName = '{$username}'";
+    //     $result = mysqli_query($con, $sql);
         
-        if($result){
-            return true;
-        }
-        else{
-            return false;
-        }
-    }
+    //     if($result){
+    //         return true;
+    //     }
+    //     else{
+    //         return false;
+    //     }
+    // }
 
 ?>
