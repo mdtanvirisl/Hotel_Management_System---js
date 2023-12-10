@@ -20,7 +20,7 @@ img {
 .h-title {
     display: flex;
     justify-content: flex-start;
-    color: blue;
+    color: #007bff;
 }
 
 .menu {
