@@ -12,7 +12,7 @@
 <body>
     <table border = "1" width=100%>
         <tr>
-            <?php include('header.php'); ?>
+            <?php include('dashboard_menu.php'); ?>
         </tr>
         <tr>
             <td>
