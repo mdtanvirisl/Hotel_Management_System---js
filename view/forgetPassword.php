@@ -7,44 +7,58 @@ include_once('../controller/forgetpassCheck.php');
 
 <head>
     <title>Forget Password</title>
+    <link rel="stylesheet" href="../assets/css/body.css">
 </head>
 
 <body>
-    <table border = "1" width= 100%>
-        <tr>
-            <td width=70%>
-                <img src="../image/hotel_management.jpg" alt="" width="100" height="100">
-            </td>
-            <td colspan="2">
-                <a href="home.php">Home</a>
-                | <a href="login.php">login</a>
-                | <a href="registration.php">Registration</a>
-            </td>
-        </tr>
-        <tr>
-            <td colspan = "2">
-                <form method="post" action="" enctype="">
-                    <fieldset>
-                        <legend>FORGET PASSWORD</legend>
-                        Enter username: <br><input type="text" name="username" value="" /> <span><?= $usernameError ?> <br>
-                        <hr>
-                        <p>Where did you born?</p>
-                        <input type="text" name="question1" value="<?php echo $question1 ?>"/> <span><?= $question1Error ?></span>
-                        <hr>
-                        <p>What is your birth year?</p>
-                        <input type="text" name="question2" value="<?php echo $question2 ?>"/> <span><?= $question2Error ?></span>
-                        <hr>
-                        <input type="submit" name="submit" value="Submit" />
-                    </fieldset>
-                </form>
-            </td>
-        </tr>
-        <tr>
-            <td colspan = "2" align = "center">
-                <h6>Copyright @ 2017</h6>
-            </td>
-        </tr>
-    </table>
+    <?php include_once("home_menu.php");?>
+
+    <div class="form">
+        <form method="post" action="" enctype="" novalidate>            
+            <fieldset>
+            <legend>Forget Password: </legend>
+                
+            <div class="input_box">
+                <p><b>Enter Username: </b></p> 
+                
+                <input type="text" name="username" value="" /> 
+                <span><?= $usernameError ?> </span> 
+
+                <p><b>Where did you born? </b></p>
+
+                <input type="text" name="question1" value="<?php echo $question1 ?>"/> 
+                <span><?= $question1Error ?></span> 
+
+                <p><b>What is your birth year? </b></p>
+                <input type="text" name="question2" value="<?php echo $question2 ?>"/> 
+                <span><?= $question2Error ?></span>
+            </div>
+
+            <input class="submit_btn" type="submit" name="submit" value="Submit" />
+            
+            </fieldset>
+        </form>
+    </div>
+
+    <p class="links"> <b> Don't have an Account? </b> <a href='registration.php'>Register Now </a> </p>
+<!--       
+    <form method="post" action="" enctype="">
+        <fieldset>
+            <legend>FORGET PASSWORD</legend>
+            Enter username: <br><input type="text" name="username" value="" /> <span><?= $usernameError ?> <br>
+            <hr>
+            <p>Where did you born?</p>
+            <input type="text" name="question1" value="<?php echo $question1 ?>"/> <span><?= $question1Error ?></span>
+            <hr>
+            <p>What is your birth year?</p>
+            <input type="text" name="question2" value="<?php echo $question2 ?>"/> <span><?= $question2Error ?></span>
+            <hr>
+            <input type="submit" name="submit" value="Submit" />
+        </fieldset>
+    </form> -->
+
+    <h6>Copyright @ 2017</h6>
+            
     
 </body>
 
