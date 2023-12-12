@@ -1,7 +1,6 @@
 <?php
     include('../controller/sessioncheck.php');
     include('../model/reserveModel.php');
-    include("../controller/ReservationCheck.php");
 
     $details = reservation();
 ?>
@@ -10,6 +9,7 @@
 <head>
     <title>Reservation</title>
     <link rel="stylesheet" href="../assets/css/draft.css">
+    <script src="../assets/js/reservation.js"></script>
 </head>
 <body>
     <?php include('dashboard_menu.php'); ?>
@@ -22,19 +22,19 @@
                 <form method="post" action="" enctype="">
                     <fieldset>
                         <legend> Make a Reservation </legend>
-                        <input type="text" name="name" value="" placeholder = "Enter Name" /><span><?= $nameError ?></span><br>
-                        <input type="text" name="username" value="" placeholder = "Enter Username" /> <span><?= $usernameError ?></span><br>
-                        <input type="text" name="roomno" value="" placeholder = "Enter Room No"/><span><?= $roomNoError?></span><br>
-                        Check In: <input type="date" name="checkin" value="" /><span><?= $dateinError?></span><br>
-                        Check Out: <input type="date" name="checkout" value="" /><span><?= $dateoutError?></span><br>
-                        
+                        <input type="text" id="name" name="name" value="" placeholder = "Enter Name" onblur="namecheck()"/><span id="nameErr"></span><br>
+                        <input type="text" id="username" name="username" value="" placeholder = "Enter Username" onblur="usernamecheck()"/> <span id="usernameErr"></span><br>
+                        <input type="text" id="roomno" name="roomno" value="" placeholder = "Enter Room No"/><span id="roomErr"></span><br>
+                        Check In: <input id="checkin" type="date" name="checkin" value="" /><span id="checkinErr"></span><br>
+                        Check Out: <input id="checkout" type="date" name="checkout" value="" /><span id="checkoutErr"></span><br>
+                        <span id="error"></span>
                         <hr>
-                        <input type="submit" name="submit" value="Reserved" /><br>
+                        <input onclick="reserve()" type="button" name="submit" value="Reserved" /><br>
                     </fieldset>
                 </form><hr>
             </div>
             <div>
-                <table border='1' width='100%'>  
+                <table>  
                     <tr>
                         <th>User Name</th>
                         <th>Name</th>

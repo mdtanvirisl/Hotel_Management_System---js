@@ -1,35 +1,35 @@
 <?php
- require_once("../model/reserveModel.php");
 
+require_once("../model/reserveModel.php");
 
- $username = isset($_REQUEST['username']) ? $_REQUEST['username'] : "";
- $name = isset($_REQUEST['name']) ? $_REQUEST['name'] : "";
- $roomNo = isset($_REQUEST['roomno']) ? $_REQUEST['roomno'] : "";
- $checkin = isset($_REQUEST['checkin']) ? $_REQUEST['checkin'] : "";
- $checkout = isset($_REQUEST['checkout']) ? $_REQUEST['checkout'] : "";
+if (!isset($_REQUEST['data'])) {
+    $response = ['error' => 'No data received'];
+    echo json_encode($response);
+} else {
+    $data = json_decode($_REQUEST['data']);
+    if (empty($data->name)) {
+        $response = ['error' => 'Please enter your name'];
+    } elseif (empty($data->username)) {
+        $response = ['error' => 'Please enter a username'];
+    } elseif (empty($data->roomno)) {
+        $response = ['error' => 'Please enter room no.'];
+    } elseif (empty($data->checkin)) {
+        $response = ['error' => 'Please enter Check in.'];
+    } elseif (empty($data->checkout)) {
+        $response = ['error' => 'Please enter check out.'];
+    } else {
+        $details = [
+            'name' => $data->name,
+            'username' => $data->username,
+            'roomNo' => $data->roomno,
+            'checkin' => $data->checkin,
+            'checkout' => $data->checkout
+        ];
 
- $usernameError = $nameError = $dateinError = $dateoutError = $roomNoError = "";
- $error = "";
- if (isset($_POST["submit"])) {
+        $status = addReserve($details);
+        echo $status;
+    }
 
-    if (!$name) {
-        $nameError = "Please enter your name";
-    }
-    if (!$username) {
-        $usernameError = "Please enter a username";
-    }
-    if (!$roomNo) {
-        $roomNoError = "Please enter room no.";
-    }
-    if (!$checkin) {
-        $dateinError = "Please enter Check in.";
-    }
-    if (!$checkout) {
-        $dateoutError = "Please enter check out.";
-    }
-    if ($name && $username && $roomNo && $checkin && $checkout) {
-        $details = ['name'=>$name, 'username'=>$username, 'roomNo'=>$roomNo, 'checkin'=>$checkin, 'checkout'=>$checkout];
-        $error = addReserve($details);
-    }
- }
+}
+
 ?>

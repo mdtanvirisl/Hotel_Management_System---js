@@ -79,6 +79,19 @@
         mysqli_query($con, $sql);
         return true;
     }
+    function usernameCheck($username) 
+    {
+        $con = getConnection();
+        $sql = "select * from guestinfo where GuestUserName='{$username}'";
+        $result = mysqli_query($con, $sql);
+        $count = mysqli_num_rows($result);
+        if ($count == 1) {
+            return true; //if email is taken
+        }
+        else{
+            return false; //if email not taken
+        }
+    }
 
     
 ?>

@@ -18,9 +18,9 @@
         $sql = "insert into room (roomType, bedding) values('{$room['roomType']}', '{$room['bedding']}')";
         $result = mysqli_query($con, $sql);
         if ($result) {
-            header('location: ../view/roomInfo.php');
+            return true;
         } else {
-            return "Database error!";
+            return false;
         }
     }
 

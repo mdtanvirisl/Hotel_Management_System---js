@@ -18,7 +18,7 @@ include_once("../controller/registrationCheck.php");
             <fieldset>                
                 <div class="input_box">
                     <label for="name"><b>Name: </b></label>
-                    <input type="text" id="name" name="name" value="<?php echo $name ?>"><span id="nameErr"></span>  
+                    <input type="text" id="name" name="name" value="<?php echo $name ?>" onblur="validateName()"><span id="nameErr"></span>  
                     <?= $nameError ?> <br> <br>
 
                     <label for="number"><b>Number: </b></label> </td>
@@ -26,13 +26,13 @@ include_once("../controller/registrationCheck.php");
                     <?= $numberError ?> <br> <br> 
 
                     <label for="gender"><b>Gender: </b></label> 
-                        <input type="radio" id="gender" name="gender" value="Male" <?= ($gender && $gender == "Male") ?
+                        <input type="radio" name="gender" value="Male" <?= ($gender && $gender == "Male") ?
                         'checked="checked"' : ""; 
                         ?> /> Male
-                        <input type="radio" id="gender" name="gender" value="Female" <?= ($gender && $gender == "Female") ?
+                        <input type="radio" name="gender" value="Female" <?= ($gender && $gender == "Female") ?
                         'checked="checked"' : "";
                         ?> /> Female
-                        <input type="radio" id="gender" name="gender" value="Other" <?= ($gender && $gender == "Other") ?
+                        <input type="radio" name="gender" value="Other" <?= ($gender && $gender == "Other") ?
                         'checked="checked"' : "";
                         ?> /> Other
 
@@ -70,19 +70,15 @@ include_once("../controller/registrationCheck.php");
                 </div>
                 
                 <div>
-                    <input onclick="validate()" class="submit_btn" type="submit" name="submit" value="Sign Up" >
+                    <input onclick="return validate()"  class="submit_btn" type="submit" name="submit" value="Sign Up" >
                 </div>                
             </fieldset>
         </form>
         <p class="links"> <b> Already have an Account? </b> <a href='login.php'>Login Now </a></p>
     </div>
-        <tr>
-            <td colspan = "2" align = "center">
-                <h6>Copyright @ 2017</h6>
-            </td>
-        </tr>
-    </table>
-    
+
+<h6>Copyright @ 2017</h6>
+    <script src="../assets/js/register.js"></script>
 </body>
 
 </html>

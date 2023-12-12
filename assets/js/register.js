@@ -2,9 +2,8 @@
 function validate() {
     let name = document.getElementById("name").value;
     let contact = document.getElementById("number").value;
-    let gender = document.getElementById("gender").value;
+    let gender = document.querySelector('input[name="gender"]:checked').value;
     let email = document.getElementById("email").value;
-    let address = document.getElementById("address").value;
     let username = document.getElementById("username").value;
     let password = document.getElementById("password").value;
     let confirmPassword = document.getElementById("confirmPassword").value;
@@ -24,10 +23,6 @@ function validate() {
     }
     if (!email) {
         document.getElementById('emailErr').innerHTML = "Please enter email";
-        return false;
-    }
-    if (!address) {
-        document.getElementById('addressErr').innerHTML = "Please enter address";
         return false;
     }
     if (!username) {
@@ -50,25 +45,65 @@ function validate() {
         document.getElementById('ques2Err').innerHTML = "Please enter que2 ans";
         return false;
     }
-    if (name && contact && gender && username && email && address && password && confirmPassword) {
+    if (name && contact && gender && username && email && password && confirmPassword) {
+        let flag = true;
         if (validateName(name)) {
             document.getElementById('nameErr').innerHTML = "Please enter at least 2 word";
+            flag = false;
             return false;
         }
         if (validateNumber(contact)) {
             document.getElementById('numberErr').innerHTML = "Please enter valid 11 digit contact number starting with 0 & 1";
+            flag = false;
             return false;
         }
         if (validateEmail(email)) {
             document.getElementById('emailErr').innerHTML = "Please enter valid email";
+            flag = false;
             return false;
         }
         if (confirmPassword !== password) {
             document.getElementById('confirmpassErr').innerHTML = "Passwords did not match";
+            flag = false;
             return false;
         }
+        // if (flag === true) {
+        //     register(name, contact, gender, email, username, password, ques1, ques2);
+        // }
+        // else {
+        //     return false;
+        // }
     }
+}
 
+function register(name, contact, gender, email, username, password, ques1, ques2) {
+    let xhttp = new XMLHttpRequest();
+    xhttp.open("POST", "../controller/registrationCheck.php", true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    let data = {
+        name: name,
+        contact: contact,
+        gender: gender,
+        email: email,
+        username: username,
+        password: password,
+        ques1: ques1,
+        ques2: ques2
+    };
+    let dataToSend = JSON.stringify(data);
+    console.log(dataToSend);
+    xhttp.send("data=" + dataToSend);
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            console.log(this.responseText);
+            let response = JSON.parse(this.responseText);
+            if (response.success) {
+            }
+            if (response.error) {
+                document.getElementById("error").innerHTML = response.error;
+            }
+        }
+    };
 }
 
 

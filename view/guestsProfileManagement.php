@@ -11,6 +11,7 @@
 <head>
     <title> Guest Profile </title>
     <link rel="stylesheet" href="../assets/css/draft.css">
+    <script src="../assets/js/guest.js"></script>
 </head>
 
 <body>
@@ -53,29 +54,8 @@
                         <input type="submit" name="Submit" value="Remove" />
                     </form>
                 </div>
-                <div>
-                    <table border=1 width = "100%">
-                        <tr>
-                            <th>Id</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Mobile Number</th>
-                            <th>Gender</th>
-                            <th>Username</th>
-                            <th>Image</th>
-                        </tr>
-                        <?php  for($i=0; $i<count($guests); $i++){ ?>
-                        <tr>
-                            <td><?=$guests[$i]['GuestId']?></td>
-                            <td><?=$guests[$i]['GuestName']?></td>
-                            <td><?=$guests[$i]['GuestEmail']?></td>
-                            <td><?=$guests[$i]['GuestNumber']?></td>
-                            <td><?=$guests[$i]['Gender']?></td>
-                            <td><?=$guests[$i]['GuestUserName']?></td>
-                            <td><?=$guests[$i]['GuestImg']?></td>
-                        </tr>
-                        <?php } ?>
-                    </table>
+                <div id="info">
+                    
                 </div>
             </div>
         </div>

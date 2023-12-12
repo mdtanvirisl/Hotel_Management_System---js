@@ -1,13 +1,21 @@
 <?php
- require_once("../model/userModel.php");
+ require_once("../model/roomModel.php");
+if (!isset($_REQUEST['data'])) {
+    $response = ['error' => 'No data received'];
+    echo json_encode($response);
+} else {
+    $data = json_decode($_REQUEST['data']);
+    if (empty($data->roomType)) {
+        $response = ['error' => 'Please enter room type'];
+    } elseif (empty($data->bedding)) {
+        $response = ['error' => 'Please enter bedding type'];
+    }else {
+        $rooms = ['roomType'=>$data->roomType, 'bedding'=>$data->bedding];
 
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $roomId = $_POST["id"];
-        $roomType = $_POST["roomType"];
-        $bedding = $_POST["bedding"];
-
-        $rooms = ['roomType'=>$roomType, 'bedding'=>$bedding];
-
-        addRoom($rooms);   
+        $status = addRoom($rooms); 
+        echo $status;
     }
+
+}
+
 ?>

@@ -9,7 +9,7 @@
 <html lang="en">
 <head>
     <title>Profile</title>
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
     <link rel="stylesheet" href="../assets/css/body.css">
     <link rel="stylesheet" href="../assets/css/draft.css">
     <link rel="stylesheet" href="../assets/css/profile.css">
@@ -32,7 +32,7 @@
                                     <img id="profile_pic" src="../assets/image/<?php echo $user['StaffImg']; ?>" alt="" > <br>
                                     <input id="p_pic" type="file" name="myfile" value=""> <br> <br>
                                 </div>
-                                <input id="p_pic" class="submit_btn" type="submit" name="submit" value="Upload Photo" /> <br> <br>
+                                <a id="p_pic" class="submit_btn" href="eprofile.php">Upload</a>
                             </fieldset>
                         </form>
                     </div>
@@ -50,10 +50,7 @@
                                 <b>Address: </b> <?php echo $user['StaffAddress']; ?> <br>
 
                                 <br><br>
-                                
-                                <form action="eprofile.php" method="post" novalidate>
-                                    <input class="submit_btn" type="submit" name="submit" value="Edit Profile" />
-                                </form>    
+                                <a class="submit_btn" href="eprofile.php">Edit Profile</a>    
                             </div>
                         </fieldset>
                     </div>
@@ -62,6 +59,6 @@
         </div>
     </section>
 
-<script src="../js/script.js"></script>
+<script src="../assets/js/script.js"></script>
 </body>
 </html>

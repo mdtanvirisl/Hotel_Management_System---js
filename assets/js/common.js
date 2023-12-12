@@ -1,3 +1,27 @@
+function checkUserName() {
+    let username = document.getElementById('username').value;
+
+    if (username === '') {
+        document.getElementById('usernameError').innerHTML = 'Username cannot be empty.';
+    } else {
+        for (let i = 0; i < username.length; i++) {
+            if (!checkChar(username[i])) {
+                document.getElementById('usernameError').innerHTML = 'Username can only contain letters, numbers, dots, or spaces.';
+                break;
+            }
+        }
+
+        if (username.split(' ').length > 1) {
+            document.getElementById('usernameError').innerHTML = 'Username cannot contain more than one word.';
+        } else if (username.length > 15) {
+            document.getElementById('usernameError').innerHTML = 'Username cannot exceed 15 characters.';
+        } else {
+            document.getElementById('usernameError').innerHTML = '';
+        }
+    }
+    checkFormValidity();
+}
+
 //Name validation functions
 
 function valid(name) {

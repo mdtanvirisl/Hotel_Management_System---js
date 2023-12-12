@@ -25,11 +25,12 @@ function validateName() {
     if (words.length >= 2) {
         for (const word of words) {
             if (!valid(word)) {
-                return false;
+                document.getElementById('nameErr').innerHTML = "Please enter name";
             }
         }
     }
     else {
+        document.getElementById('nameErr').innerHTML = "";
         return true;// true for valid name.
     }
 }
@@ -97,26 +98,6 @@ function validatePicture() {
 }
 
 
-function onsubmit() {
-
-    if (!validateName() && !validateEmail() && !validateNumber()) {
-        alert('Please enter valid information.');
-    }
-    else {
-        return true;
-    }
-}
-
-function onimagesubmit() {
-    if (validatePicture()) {
-        return true;
-    }
-    else {
-        alert('please select an image');
-    }
-}
-
-
 function ajax() {
 
     let currentpassword = document.getElementById('currentpassword').value;
@@ -136,4 +117,41 @@ function ajax() {
     }
 
     xhttp.send(data);
+}
+
+function room() {
+    let roomType = document.getElementById('roomType').value;
+    let bedding = document.getElementById('bedding').value;
+
+    if (!roomType) {
+        alert('Please select a room type');
+        return false;
+    }
+    if (!bedding) {
+        alert('Please select a bedding');
+        return false;
+    } if (roomType && bedding) {
+        let xhttp = new XMLHttpRequest();
+        xhttp.open('POST', '../controller/roomCheck.php', true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        let data = {
+            'roomType': roomType,
+            'bedding': bedding
+        };
+        let dataToSend = JSON.stringify(data);
+        xhttp.send("data=" + dataToSend);
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                let response = this.responseText;
+                console.log(response);
+                if (response) {
+                    window.location.href = "../view/roomInfo.php";
+                }
+            }
+        }
+
+    }
+
+
+
 }

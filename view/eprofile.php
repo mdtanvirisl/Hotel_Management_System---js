@@ -9,7 +9,7 @@
 <html lang="en">
 <head>
     <title>Edit Profile</title>
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
     <link rel="stylesheet" href="../assets/css/body.css">
     <link rel="stylesheet" href="../assets/css/draft.css">
     
@@ -40,6 +40,6 @@
         </div>
     </section>
 
-    <script src="../js/script.js"></script>
+    <script src="../assets/js/script.js"></script>
 </body>
 </html>

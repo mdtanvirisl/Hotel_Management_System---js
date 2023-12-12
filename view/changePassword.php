@@ -1,5 +1,6 @@
 <?php
     include('../controller/sessioncheck.php');
+    include_once('../controller/changepassCheck.php');
 ?>
 
 <html lang="en">
@@ -45,26 +46,6 @@
             </div>
         </div>
     </section>
-    
-            <td width=80%>
-                <form method="post" action="" enctype="">
-                    <fieldset>
-                        <legend>PASSWORD CHANGE</legend>
-                        Current Password: <input type="password" name="currpassword" value="" /> <br><br>
-                        New Password: <input type="password" name="newpassword" value="" /> <br><br>
-                        Retype New Password: <input type="password" name="retypepassword" value="" /> <br>
-                        <hr>
-                        <input onclick="ajax()" type="submit" name="submit" value="Submit" />
-                    </fieldset>
-                </form>
-            </td>
-        </tr>
-        <tr>
-            <td colspan = "2" align = "center">
-                <h6>Copyright @ 2017</h6>
-            </td>
-        </tr>
-    </table>
 </body>
 
 </html>

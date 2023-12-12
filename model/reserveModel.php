@@ -18,9 +18,9 @@
         $sql = "insert into reserveroom (UserName, Name, RoomNo, CheckIn, CheckOut, status) values('{$reserve['username']}', '{$reserve['name']}', '{$reserve['roomNo']}', '{$reserve['checkin']}', '{$reserve['checkout']}', 'Confirmed')";
         $result = mysqli_query($con, $sql);
         if ($result) {
-            header('location: ../view/reservationManagement.php');
+            return true;
         } else {
-            return "Database error!";
+            return false;
         }
     }
 
