@@ -5,14 +5,14 @@ body {
 }
 
 /* Header Styles */
-img {
+.img {
     height: 70px;
     width: 70px;
 }
 
 .image {
-    height: 40px;
-    width: 40px;
+    height: 25px;
+    width: 25px;
 }
 
 .header {
@@ -20,6 +20,7 @@ img {
     grid-template-columns: repeat(2, 1fr);
     border: 2px solid blue;
     align-items: center;
+    margin-bottom: 10px;
 }
 
 .h-title {
@@ -43,8 +44,28 @@ img {
 }
 
 a:hover {
-    /* background-color: rgb(123, 178, 255); */
     background-color: cyan;
     color: black;
     border-radius: 5px;
+}
+
+/* side menu */
+
+.sideMenu {
+    display: grid;
+    /* width: 15%; */
+}
+
+.sideMenu a {
+    background-color: #007bff;
+    color: white;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    padding: 10px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.sideMenu a:hover {
+    color: aqua;
 }

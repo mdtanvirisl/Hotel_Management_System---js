@@ -8,18 +8,17 @@
 <html lang="en">
 <head>
     <title>Dashboard</title>
+    <link rel="stylesheet" href="../assets/css/dashboard.css">
 </head>
 <body>
-    <table border = "1" width=100%>
-        <tr>
-            <?php include('dashboard_menu.php'); ?>
-        </tr>
-        <tr>
-            <td>
-                <?php include('account.php'); ?>
-            </td>
-            <td width=80%>
-                <table border='1' width='100%'>  
+    <?php include('dashboard_menu.php'); ?>
+    <section class="container">
+        <div class="">
+            <?php include('side_menu.php'); ?>
+        </div>
+        <div class="info">
+            <div>
+                <table>  
                     <tr>
                         <th>User Name</th>
                         <th>Name</th>
@@ -39,15 +38,8 @@
                     </tr>
                 <?php } ?> 
                 </table>
-            </td>
-        </tr>
-        <tr>
-            <td colspan = "2" align = "center">
-                <h6>Copyright @ 2017</h6>
-            </td>
-        </tr>
-    </table>
-
-
+            </div>
+        </div>
+    </section>
 </body>
 </html>

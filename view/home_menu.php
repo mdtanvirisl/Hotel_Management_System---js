@@ -7,7 +7,7 @@
     <section class="header">
         <div class="h-title">
             <div>
-                <img src="../assets/logo/property.png" alt="">
+                <img class="img" src="../assets/logo/property.png" alt="">
             </div>
             <h2>Hotel Management system</h2>
         </div>
