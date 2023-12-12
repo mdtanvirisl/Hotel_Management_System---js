@@ -41,21 +41,7 @@ include_once('../controller/forgetpassCheck.php');
     </div>
 
     <p class="links"> <b> Don't have an Account? </b> <a href='registration.php'>Register Now </a> </p>
-<!--       
-    <form method="post" action="" enctype="">
-        <fieldset>
-            <legend>FORGET PASSWORD</legend>
-            Enter username: <br><input type="text" name="username" value="" /> <span><?= $usernameError ?> <br>
-            <hr>
-            <p>Where did you born?</p>
-            <input type="text" name="question1" value="<?php echo $question1 ?>"/> <span><?= $question1Error ?></span>
-            <hr>
-            <p>What is your birth year?</p>
-            <input type="text" name="question2" value="<?php echo $question2 ?>"/> <span><?= $question2Error ?></span>
-            <hr>
-            <input type="submit" name="submit" value="Submit" />
-        </fieldset>
-    </form> -->
+
 
     <h6>Copyright @ 2017</h6>
             

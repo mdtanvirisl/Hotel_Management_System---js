@@ -8,7 +8,7 @@
 <html lang="en">
 <head>
     <title>Dashboard</title>
-    <link rel="stylesheet" href="../assets/css/dashboard.css">
+    <link rel="stylesheet" href="../assets/css/draft.css">
 </head>
 <body>
     <?php include('dashboard_menu.php'); ?>

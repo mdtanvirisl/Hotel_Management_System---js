@@ -9,17 +9,16 @@
 <html>
 <head>
     <title>Reservation</title>
+    <link rel="stylesheet" href="../assets/css/draft.css">
 </head>
 <body>
-    <table border = '1' width = 100%>
-        <tr>
-            <?php include('header.php'); ?>
-        </tr>
-        <tr>
-            <td>
-                <?php include('account.php'); ?>
-            </td>
-            <td width = 85%>
+    <?php include('dashboard_menu.php'); ?>
+    <section class="container">
+        <div class="">
+            <?php include('side_menu.php'); ?>
+        </div>
+        <div class="info">
+            <div>
                 <form method="post" action="" enctype="">
                     <fieldset>
                         <legend> Make a Reservation </legend>
@@ -33,6 +32,8 @@
                         <input type="submit" name="submit" value="Reserved" /><br>
                     </fieldset>
                 </form><hr>
+            </div>
+            <div>
                 <table border='1' width='100%'>  
                     <tr>
                         <th>User Name</th>
@@ -57,13 +58,8 @@
                     </tr>
                 <?php } ?> 
                 </table>
-            </td>
-        </tr>
-        <tr>
-            <td colspan = "2" align = "center">
-                <h6>Copyright &copy 2017</h6>
-            </td>
-        </tr>
-    </table>
+            </div>
+        </div>
+    </section>
 </body>
 </html>

@@ -2,6 +2,7 @@
 <head>
     <title>home menu</title>
     <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/body.css">
 </head>
 <body>
     <section class="header">

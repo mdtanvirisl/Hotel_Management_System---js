@@ -1,0 +1,35 @@
+.profile {
+    display: flex;
+    justify-content: center;
+}
+
+#profile_pic {
+    height: 120px;
+    width: 120px;
+    margin-left: 70px;
+}
+
+#form {
+    /* max-width: 400px; */
+    margin: 20px 50px 20px 50px;
+    padding: 30px;
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    background-color: rgba(193, 223, 247, 0.502);
+}
+
+.p_info {
+    margin: 0px 0px 0px 100px;
+    text-align: center;
+}
+
+#p_info {
+    margin: 0px 50px 0px 50px;
+    text-align: center;
+    padding: 0px 0px 50px 0px;
+
+}
+
+#p_pic {
+    margin: 0px 0px 0px 50px;
+}

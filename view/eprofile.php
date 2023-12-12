@@ -9,37 +9,36 @@
 <html lang="en">
 <head>
     <title>Edit Profile</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/body.css">
+    <link rel="stylesheet" href="../assets/css/draft.css">
     
 </head>
 <body>
-    <table border = "1" width=100%>
-        <tr>
-            <?php include('header.php'); ?>
-        </tr>
-        <tr>
-            <td>
-                <?php include('account.php'); ?>
-            </td>
-            <td width=80%>
-                <form action="" method="post">
-                    <fieldset>
-                        <legend>Edit Profile</legend>
-                        Name: <input type="text" name="name" value="<?php echo $user['StaffName']?>" /> <p><?= $nameError ?></p> <hr>
-                        Email:<input type="email" name="email" value="<?php echo $user['StaffEmail']?>" /><hr>
-                        Phone Number:<input type="text" name="number" value="<?php echo $user['StaffNumber']?>" /><p><?= $numberError ?></p> <hr>
-                        Address:<input type="text" name="address" value="<?php echo $user['StaffAddress']?>" /> <hr>
-                        <hr>
-                        <input onclick="onsubmit()" type="submit" name="submit" value="Submit" />
-                    </fieldset>
+    <?php include('dashboard_menu.php'); ?>
+    <section class="container">
+        <div class="">
+            <?php include('side_menu.php'); ?>
+        </div>
+        <div class="info">
+            <div class="form">
+                <form action="" method="post" novalidate> 
+                    <fieldset> 
+                        <legend align="center">Update Profile</legend> 
+                        
+                        <br><b>General Informations: </b> <br> <br>
+
+                        Name: <input id="name" type="text" name="name" value="<?php echo $user['StaffName']?>" /><span id="nameErr"></span> <?= $nameError ?> <br>
+                        Email: <input id="email" type="email" name="email" value="<?php echo $user['StaffEmail']?>" /><span id="emailErr"></span><?= $emailError ?> <br>
+                        Phone Number: <input id="number" type="text" name="number" value="<?php echo $user['StaffNumber']?>" /><span id="numberErr"></span> <?= $numberError ?> <br>
+                        Address: <input id="address" type="text" name="address" value="<?php echo $user['StaffAddress']?>" /><span id="addressErr"></span> <?php echo $addressError; ?><br>
+                        
+                        <input onclick="return editProfile()" class="submit_btn" type="submit" name="submit" value="Update" />
+                    </fieldset> 
                 </form>
-            </td>
-        </tr>
-        <tr>
-            <td colspan = "2" align = "center">
-                <h6>Copyright @ 2017</h6>
-            </td>
-        </tr>
-    </table>
+            </div>
+        </div>
+    </section>
 
     <script src="../js/script.js"></script>
 </body>
