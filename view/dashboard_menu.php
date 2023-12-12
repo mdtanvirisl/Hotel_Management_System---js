@@ -7,7 +7,7 @@
     <section class="header">
         <div class="h-title">
             <div>
-                <img src="../assets/logo/property.png" alt="">
+                <img class="image" src="../assets/logo/property.png" alt="">
             </div>
             <h2>Welcome to dashboard</h2>
         </div>
