@@ -22,7 +22,7 @@
             }else if($status['UserType'] == 'Guest'){
                 // $_SESSION['flag'] = 'true';
                 setcookie('Guest', 'true', time()+3600, '/');
-                header('location: ../view/dashboard.php');
+                header('location: ../view/guest_dashboard.php');
             }
         }else{
             $error =  "invalid username/password!";
