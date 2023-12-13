@@ -37,3 +37,69 @@ th {
     text-align: center;
 
 }
+
+/* asif  */
+.inputbox {
+    display: grid;
+    width: 100%;
+}
+
+.btnn:hover {
+
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+}
+
+.btnn {
+    background-color: white;
+    border-radius: 5px;
+    width: 6%;
+}
+
+span {
+    color: red;
+}
+
+input {
+    border-radius: 5px;
+}
+
+input:hover {
+    border-color: #007bff;
+}
+
+select {
+    border-radius: 5px;
+}
+
+select:hover {
+    border-color: #007bff;
+}
+
+.write_notice {
+    height: 200px;
+    width: 400px;
+    border-color: #007bff;
+    border-radius: 5px;
+}
+
+.faq {
+    background-color: cyan;
+    border-radius: 5px;
+    height: 80px;
+}
+
+.write_text {
+    height: 100px;
+    width: 200px;
+    border-color: #007bff;
+    border-radius: 5px;
+    gap: 50px;
+}
+
+.write_about {
+    background-color: cyan;
+    border-radius: 5px;
+    height: 80px;
+}

@@ -1,0 +1,35 @@
+<?php
+include('../controller/sessioncheck.php');
+?>
+<html lang="en">
+<head>
+    <title>Password Change</title>
+    <link rel="stylesheet" href="../assets/css/draft.css">
+    <script src="../assets/js/changepassword.js"></script>
+</head>
+
+<body>
+    <?php include('dashboard_menu.php'); ?>
+    <section class="container">
+        <div class="">
+            <?php include('admin_menu.php'); ?>
+        </div>
+        <div class="info">
+            <div>
+                <form method="" action="" enctype="">
+                    <fieldset>
+                        <legend>PASSWORD CHANGE</legend>
+                        Current Password: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <input type="password" id="currentpassword" name="currentpassword" value="" /> <br> <br>
+                        New Password: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <input type="password" id="newpassword" name="newpassword" value="" /> <br> <br>
+                        Retype New Password: <input type="password" id="retypenewpassword" name="retypenewpassword" value="" /> <br> <br>
+                        <hr>
+                        <input type="button" name="submit" value="Submit" class="btnn" onclick="changePassword()" />
+                    </fieldset>
+                </form>
+
+                <h5 id="h5"> </h5>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

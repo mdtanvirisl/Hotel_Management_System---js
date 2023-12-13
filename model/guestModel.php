@@ -1,72 +1,90 @@
 <?php
 
-    require_once("../model/userModel.php");
+    require_once('db.php');
 
     function addguest($user){
         $con = getConnection();
-        $sql = "insert into guestinfo (GuestName, GuestEmail, GuestNumber, Gender, GuestUserName, UserType, Question1, Question2) values('{$user['name']}', '{$user['email']}', '{$user['number']}', '{$user['gender']}', '{$user['username']}', '{$user['userType']}', '{$user['question1']}','{$user['question2']}' )";
+        $sql = "insert into guestinfo (GuestId, GuestName, GuestEmail, GuestNumber, Gender, GuestUserName) values('{$user[0]}', '{$user[1]}', '{$user[2]}', '{$user[3]}', '{$user[4]}', '{$user[5]}')";
         $result = mysqli_query($con, $sql);
+
+        if ($result){
+            return true;
+        }else{
+    
+            return false;
+        }
+    }
+
+    function deleteguest($guestusername){
+        $con = getConnection();
+        $sql = "delete from guestinfo where GuestUserName  = '{$guestusername}'";
+        $result = mysqli_query($con, $sql);
+
+    }
+
+    function updateguest($user){
+        $con = getConnection();
+        $sql = "update guestinfo set GuestName = '{$user[0]}', GuestEmail = '{$user[1]}', GuestNumber = '{$user[2]}', Gender = '{$user[3]}' where GuestUserName  = '{$user[4]}'";
+        $result = mysqli_query($con, $sql);
+
+        if ($result){
+            return true;
+        }else{
+    
+            return false;
+        }
+        
+    }
+
+    function viewprofile($username){
+        $con = getConnection();
+        $sql = "select * from guestinfo where GuestUserName='{$username}'";
+        $result = mysqli_query($con, $sql);
+        $users = mysqli_fetch_assoc($result);
+                
+        return $users;
+    }
+
+    function guestsearch($searchguest){
+        $con = getConnection();
+        $sql = "select * from guestinfo where GuestUserName='{$searchguest}'";
+        $result = mysqli_query($con, $sql);
+        
         return $result;
     }
 
-    function getAllGuest(){
+    function getallguest(){
         $con = getConnection();
         $sql = "select * from guestinfo";
         $result = mysqli_query($con, $sql);
         $guests = [];
         
-        while($user = mysqli_fetch_assoc($result)){
-            array_push($guests, $user);
+        while($guest = mysqli_fetch_assoc($result)){
+            array_push($guests, $guest);
         }
         
         return $guests;
+        
     }
-    function getGuest($username){
+
+    function AutoGuestIdGenerate(){
         $con = getConnection();
-        $sql = "select * from guestinfo where GuestUserName = '{$username}'";
+        $sql = "select * from guestinfo order by GuestId desc";
         $result = mysqli_query($con, $sql);
-        $user = mysqli_fetch_assoc($result);
-        $count = mysqli_num_rows($result);
-        if($count == 1){
-            return $user;
+        $row = mysqli_fetch_assoc($result);
+        $id = $row['GuestId'];
+        if($id == ""){
+            
+            $userid = "G-1";
+            return $userid;
         }
         else{
-            return false;
+            $userid = substr($id, 2);
+            $userid = intval($userid);
+            $userid = "G-" . ($userid + 1);
+            return $userid;
         }
-    }
-    
-    function register($guest) 
-    {
-        $con = getConnection();
-        $sql = "select * from guestinfo where GuestUserName='{$guest['username']}'";
-        $result = mysqli_query($con, $sql);
-        $count = mysqli_num_rows($result);
-        if ($count == 1) {
-            return "Username is already taken";
-        }
-        $auth = ['username' => $guest['username'], 'password'=>$guest['password'], 'userType'=>$guest['userType']];
-
-        $result = addguest($guest);
-        $login = addAuth($auth);
-
-        if ($result && $login) {
-            header('location: ../view/login.php');
-        } else {
-            return "Database error!";
-        }
-    }
-
-    // function updatePassword($username, $password){
-    //     $con = getConnection();
-    //     $sql = "update login set Password='{$password}' where UserName = '{$username}'";
-    //     $result = mysqli_query($con, $sql);
         
-    //     if($result){
-    //         return true;
-    //     }
-    //     else{
-    //         return false;
-    //     }
-    // }
+    }
 
 ?>

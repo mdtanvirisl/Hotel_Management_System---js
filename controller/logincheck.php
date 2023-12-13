@@ -9,7 +9,13 @@
     if (isset($_POST["submit"])){
         if(!$username && !$password){
             $error = "please enter all required information";
-        }else if($status){
+        }else if($status['UserType'] == 'Admin'){
+            $_SESSION['flag'] = 'true';
+            header('location: ../view/admin_dashboard.php');
+        }else if($status['UserType'] == 'Receptionist'){
+            $_SESSION['flag'] = 'true';
+            header('location: ../view/dashboard.php');
+        }else if($status['UserType'] == 'Guest'){
             $_SESSION['flag'] = 'true';
             header('location: ../view/dashboard.php');
         }else{

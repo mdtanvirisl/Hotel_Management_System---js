@@ -69,3 +69,9 @@ a:hover {
 .sideMenu a:hover {
     color: aqua;
 }
+
+.faq {
+    background-color: cyan;
+    border-radius: 5px;
+    height: 80px;
+}

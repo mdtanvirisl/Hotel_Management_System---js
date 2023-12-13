@@ -1,0 +1,30 @@
+*{
+    box-sizing: border-box;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+.flex_space-around{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+footer{
+    min-height: 10vh;
+    padding: 1rem 1rem;
+    background-color: black;
+    color: white;
+    font-family: 'Times New Roman';
+    font-size: 1.2rem;
+}
+
+.bbtn{
+    border: none;
+    padding: 6px 3px;
+    border-radius: 5px;
+    font-size: 1.5rem;
+    margin-top: 3px;
+}

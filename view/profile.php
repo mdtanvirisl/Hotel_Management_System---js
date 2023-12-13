@@ -1,6 +1,7 @@
 <?php
     include('../controller/sessioncheck.php');
     include('../model/userModel.php');
+    include('../model/staffModel.php');
 
     
     $user = getUser($_SESSION['user']['username']);
