@@ -10,7 +10,7 @@
 <head>
     <title> About us </title>
     <link rel="stylesheet" href="../assets/css/styles.css">
-    <link rel="stylesheet" href="../assets/css/dashboard.css">
+    <link rel="stylesheet" href="../assets/css/draft.css">
 </head>
 
 <body>

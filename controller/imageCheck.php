@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_FILES['myfile']) && $_FILES['myfile']['error'] === UPLOAD_ERR_OK) {
         $src = $_FILES['myfile']['tmp_name'];
         $fileName = $_FILES['myfile']['name'];
-        $folder = '../image/' . $fileName;
+        $folder = '../assets/image/' . $fileName;
 
         $allowedExtensions = ['jpg', 'jpeg', 'png', 'gif'];
         $fileExtension = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));

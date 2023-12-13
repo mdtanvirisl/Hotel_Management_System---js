@@ -19,7 +19,14 @@ include('../controller/sessioncheck.php');
     <?php include('dashboard_menu.php'); ?>
     <section class="container">
         <div class="">
-            <?php include('admin_menu.php'); ?>
+            <?php
+            
+                if($_SESSION['user']['UserType'] == 'Receptionist'){
+                    include('side_menu.php'); 
+                }else if($_SESSION['user']['UserType'] == 'Admin'){
+                    include('admin_menu.php');
+                } 
+            ?>
         </div>
         <div class="info">
             <div>

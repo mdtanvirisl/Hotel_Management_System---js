@@ -4,6 +4,8 @@ include('../controller/sessioncheck.php');
 <html lang="en">
 <head>
     <title>Password Change</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/body.css">
     <link rel="stylesheet" href="../assets/css/draft.css">
     <script src="../assets/js/changepassword.js"></script>
 </head>
@@ -12,10 +14,16 @@ include('../controller/sessioncheck.php');
     <?php include('dashboard_menu.php'); ?>
     <section class="container">
         <div class="">
-            <?php include('admin_menu.php'); ?>
+            <?php
+                if($_SESSION['user']['UserType'] == 'Receptionist'){
+                    include('side_menu.php'); 
+                }else if($_SESSION['user']['UserType'] == 'Admin'){
+                    include('admin_menu.php');
+                } 
+            ?>
         </div>
         <div class="info">
-            <div>
+            <div class="form">
                 <form method="" action="" enctype="">
                     <fieldset>
                         <legend>PASSWORD CHANGE</legend>
@@ -23,7 +31,7 @@ include('../controller/sessioncheck.php');
                         New Password: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <input type="password" id="newpassword" name="newpassword" value="" /> <br> <br>
                         Retype New Password: <input type="password" id="retypenewpassword" name="retypenewpassword" value="" /> <br> <br>
                         <hr>
-                        <input type="button" name="submit" value="Submit" class="btnn" onclick="changePassword()" />
+                        <input type="button"  name="submit" value="Submit" class="submit_btn" onclick="changePassword()" />
                     </fieldset>
                 </form>
 

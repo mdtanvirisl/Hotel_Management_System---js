@@ -4,7 +4,7 @@
     include('../model/staffModel.php');
 
     
-    $user = getUser($_SESSION['user']['username']);
+    $user = staffviewprofile($_SESSION['user']['username']);
 ?>
 
 <html lang="en">
@@ -16,10 +16,18 @@
     <link rel="stylesheet" href="../assets/css/profile.css">
 </head>
 <body>
-    <?php include('dashboard_menu.php'); ?>
+    <?php include('dashboard_menu.php'); 
+    ?>
     <section class="container">
         <div class="">
-            <?php include('side_menu.php'); ?>
+            <?php
+            
+                if($_SESSION['user']['UserType'] == 'Receptionist'){
+                    include('side_menu.php'); 
+                }else if($_SESSION['user']['UserType'] == 'Admin'){
+                    include('admin_menu.php');
+                } 
+            ?>
         </div>
         <div class="info">
             <div id="form">
@@ -33,7 +41,7 @@
                                     <img id="profile_pic" src="../assets/image/<?php echo $user['StaffImg']; ?>" alt="" > <br>
                                     <input id="p_pic" type="file" name="myfile" value=""> <br> <br>
                                 </div>
-                                <a id="p_pic" class="submit_btn" href="eprofile.php">Upload</a>
+                                <input id="p_pic" class="submit_btn" type="submit" name="submit" value="upload">
                             </fieldset>
                         </form>
                     </div>
