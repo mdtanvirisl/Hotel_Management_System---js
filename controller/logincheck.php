@@ -9,15 +9,21 @@
     if (isset($_POST["submit"])){
         if(!$username && !$password){
             $error = "please enter all required information";
-        }else if($status['UserType'] == 'Admin'){
-            $_SESSION['flag'] = 'true';
-            header('location: ../view/admin_dashboard.php');
-        }else if($status['UserType'] == 'Receptionist'){
-            $_SESSION['flag'] = 'true';
-            header('location: ../view/dashboard.php');
-        }else if($status['UserType'] == 'Guest'){
-            $_SESSION['flag'] = 'true';
-            header('location: ../view/dashboard.php');
+        }
+        if($status){
+            if($status['UserType'] == 'Admin'){
+                // $_SESSION['flag'] = 'true';
+                setcookie('Admin', 'true', time()+3600, '/');
+                header('location: ../view/admin_dashboard.php');
+            }else if($status['UserType'] == 'Receptionist'){
+                // $_SESSION['flag'] = 'true';
+                setcookie('Receptionist', 'true', time()+3600, '/');
+                header('location: ../view/dashboard.php');
+            }else if($status['UserType'] == 'Guest'){
+                // $_SESSION['flag'] = 'true';
+                setcookie('Guest', 'true', time()+3600, '/');
+                header('location: ../view/dashboard.php');
+            }
         }else{
             $error =  "invalid username/password!";
         }

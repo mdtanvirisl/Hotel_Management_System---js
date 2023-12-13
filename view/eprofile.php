@@ -1,5 +1,11 @@
 <?php
-    include('../controller/sessioncheck.php');
+    session_start();
+    if($_SESSION['user']['UserType'] == 'Admin'){
+        include('../controller/adminsession.php');
+    }
+    else{
+        include('../controller/sessioncheck.php');
+    }
     include('../model/userModel.php');
     include('../controller/editprofileCheck.php');
 
@@ -18,7 +24,11 @@
     <?php include('dashboard_menu.php'); ?>
     <section class="container">
         <div class="">
-            <?php include('side_menu.php'); ?>
+            <?php if($_SESSION['user']['UserType'] == 'Receptionist'){
+                    include('side_menu.php'); 
+                }else if($_SESSION['user']['UserType'] == 'Admin'){
+                    include('admin_menu.php');
+                } ?>
         </div>
         <div class="info">
             <div class="form">

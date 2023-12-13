@@ -1,5 +1,10 @@
 <?php
     session_start();
-    unset($_SESSION['flag']);
+    if($_SESSION['user']['UserType'] == 'Admin'){
+        setcookie('Admin', 'true', time()-3600, '/');
+    }
+    else{
+        setcookie('Receptionist', 'true', time()-3600, '/');
+    }
     header('location: ../view/login.php');
 ?>

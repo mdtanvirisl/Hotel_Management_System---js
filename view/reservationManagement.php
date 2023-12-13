@@ -1,4 +1,5 @@
 <?php
+session_start();
     include('../controller/sessioncheck.php');
     include('../model/reserveModel.php');
 

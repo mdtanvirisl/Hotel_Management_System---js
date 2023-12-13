@@ -1,5 +1,6 @@
 <?php
-include('../controller/sessioncheck.php');
+session_start();
+include('../controller/adminsession.php');
     include('../model/salarysheetModel.php');
     include('../model/salaryModel.php');
     $salarysheet = getallstaffsalary();

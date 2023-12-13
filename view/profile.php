@@ -1,5 +1,11 @@
 <?php
-    include('../controller/sessioncheck.php');
+session_start();
+    if($_SESSION['user']['UserType'] == 'Admin'){
+        include('../controller/adminsession.php');
+    }
+    else{
+        include('../controller/sessioncheck.php');
+    }
     include('../model/userModel.php');
     include('../model/staffModel.php');
 

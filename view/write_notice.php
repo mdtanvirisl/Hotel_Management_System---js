@@ -1,5 +1,6 @@
 <?php
-include('../controller/sessioncheck.php');
+session_start();
+include('../controller/adminsession.php');
     include('../model/noticeModel.php');
     $notice = getallnotice();
 ?>
