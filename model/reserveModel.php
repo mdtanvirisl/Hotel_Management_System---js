@@ -47,4 +47,18 @@
             return "Database error!";
         }
     }
+
+    function searchroom($room){
+        $con = getConnection();
+        $sql = "select * from reserveroom where RoomNo='{$room}'";
+        $result = mysqli_query($con, $sql);
+        $user = mysqli_fetch_assoc($result);
+                
+        if ($user){
+            return true;
+        }else{
+    
+            return false;
+        }
+    }
 ?>

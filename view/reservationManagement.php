@@ -25,7 +25,7 @@ session_start();
                         <legend> Make a Reservation </legend>
                         <input type="text" id="name" name="name" value="" placeholder = "Enter Name" onblur="namecheck()"/><span id="nameErr"></span><br>
                         <input type="text" id="username" name="username" value="" placeholder = "Enter Username" onblur="usernamecheck()"/> <span id="usernameErr"></span><br>
-                        <input type="text" id="roomno" name="roomno" value="" placeholder = "Enter Room No"/><span id="roomErr"></span><br>
+                        <input type="text" id="roomno" name="roomno" value="" placeholder = "Enter Room No" onblur="roomAvailable()"/><span id="roomErr"></span><br>
                         Check In: <input id="checkin" type="date" name="checkin" value="" /><span id="checkinErr"></span><br>
                         Check Out: <input id="checkout" type="date" name="checkout" value="" /><span id="checkoutErr"></span><br>
                         <span id="error"></span>

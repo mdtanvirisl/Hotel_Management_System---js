@@ -83,3 +83,26 @@ function reserve() {
         }
     }
 }
+
+function roomAvailable() {
+    let roomno = document.getElementById('roomno').value;
+    if (!roomno) {
+        document.getElementById('roomErr').innerHTML = "please enter room no";
+    } else {
+        let xhttp = new XMLHttpRequest();
+        xhttp.open('POST', '../controller/roomAvailable.php', true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send("roomno=" + roomno);
+        xhttp.onreadystatechange = function () {
+
+            if (this.readyState == 4 && this.status == 200) {
+                // alert(this.responseText);
+                if (this.responseText) {
+                    document.getElementById('roomErr').innerHTML = "room not available!";
+                } else {
+                    document.getElementById('roomErr').innerHTML = "";
+                }
+            }
+        }
+    }
+}

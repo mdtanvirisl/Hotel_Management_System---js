@@ -18,7 +18,7 @@
         <?php for($i=0; $i<count($about); $i++){ ?>
             <p class="write_about"> <?=$about[$i]['AboutUs']?> </p>
         <?php } ?>
-    
+    <?php include_once("footer.php");?>
 </body>
 
 </html>
